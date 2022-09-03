@@ -1,0 +1,16 @@
+<Scenario1>
+    <!-- Phase 1 -->
+    <InGameTitle>안내자 :       </InGameTitle>
+    <FullTitle>안내자 : 길잡이</FullTitle>
+    <Word>길잡이</Word>
+    <LetterCount>6</LetterCount>
+    <Letter1>      ㅁ    ㅓ ㄷ      ㅓ ㄴ               ㅔ ㅅ ㅓ   ㄷ    ㅅ               ㄴ ㅐ ㅎ      ㅔ ㅅ ㄴ    ㄷ   .</Letter1>
+    <Letter2>      ㅜ  ㅅ   ㅗ     ㅅ  ㅡ        ㅗ                       ㄴ  ㅡ    ㄴ                ㅆ  ㅡ    </Letter2>
+    <Letter3>                         ㄴ        ㅅ                                                        </Letter3>
+    <Letter4></Letter4>
+    <Letter5>ㄷ    ㅅ                             ㅅ ㅓ ㅎ                    ㅓ                    ㅁ ㅕ.</Letter5>
+    <Letter6>       ㄴ           ㅗ      ㅡ ㅗ     ㄴ   ㄴ           ㅡ      ㄷ              </Letter6>
+    <FullLetterCount>2</FullLetterCount>
+    <FullLetter1>아무것도 없는 이곳에서 당신을 안내하겠습니다.</FullLetter1>
+    <FullLetter2>당신의 올바르고 선한 길만 걷기를 바라며.</FullLetter2>
+</Scenario1>
