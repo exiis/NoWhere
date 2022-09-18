@@ -11,14 +11,10 @@ public class xmltester : MonoBehaviour
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(textAsset.text);
 
-        for(int i=0; i<7; i++){
-            string curTagName = "Letter" + i;
-            XmlNodeList cost_Table = xmlDoc.GetElementsByTagName(curTagName);
-                foreach(XmlNode cost in cost_Table){
-                    Debug.Log(cost.InnerText);
-                    UIcontroller.SendMessage(cost.InnerText, MessageSendMode.mode.fade, 1.0f);
-                }
-        }
+        string curTagName = "Letter1";
+        XmlNodeList cost_Table = xmlDoc.GetElementsByTagName(curTagName);
+        string temp = cost_Table[0].InnerText;
+        UIcontroller.SendMessage(temp, MessageSendMode.mode.fade, 5.0f);
         
     }
 

@@ -403,6 +403,8 @@
 "Assets/99.ImportSets/Map(Flooded_Grounds)/Scripts/WaterFloat.cs"
 "Assets/resource/Define/Define.cs"
 "Assets/resource/Script/CheckPointHandler.cs"
+"Assets/resource/Script/GameObject/DoorHanlder.cs"
+"Assets/resource/Script/SettingHandler.cs"
 "Assets/resource/Script/UIController.cs"
 "Assets/resource/Script/xmltester.cs"
 -langversion:9.0
