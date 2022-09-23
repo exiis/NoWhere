@@ -216,6 +216,7 @@ public class UIController : MonoBehaviour
             onSetting = true;
             OnSettingUI();
             Debug.Log("On called");
+            Time.timeScale = 0;
             return;
         }
     }

@@ -5,11 +5,10 @@ using TMPro;
 
 public class PlayerSettingHandler :  SettingHandler
 {
-    CharController_Motor charController;
-    Camera charCam;
-
+    public CharController_Motor charController;
+    public Camera charCam;
     SettingHandler SettingTop;
-    enum settingState { SENSITIVITY = 0, FOV };
+    enum settingState { SENSITIVITY = 0, FOV, RESET };
     int Sensitivity = 150;
     int FieldOfView = 45;
 
@@ -23,13 +22,13 @@ public class PlayerSettingHandler :  SettingHandler
 
     void Update(){
         if(onSetting){
-            if(Input.GetKeyUp(KeyCode.UpArrow)){
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if(currentSelect == 0) return;
                 setCurrentContentColor(false);
                 currentSelect--;
                 setCurrentContentColor(true);
             }   
-            if(Input.GetKeyUp(KeyCode.DownArrow)){
+            if(Input.GetKeyDown(KeyCode.DownArrow)){
                 if(currentSelect == ContentList.Length-1) return;
                 setCurrentContentColor(false);
                 currentSelect++;
@@ -45,6 +44,11 @@ public class PlayerSettingHandler :  SettingHandler
                 OffSetting();
                 SettingTop.OnSetting();
             }
+            if(Input.GetKeyDown(KeyCode.Return)){
+                if(currentSelect == ((int)settingState.RESET))
+                    initPlayerSettings();
+            }
+            UpdateValue();
         }
     }
 
@@ -80,7 +84,6 @@ public class PlayerSettingHandler :  SettingHandler
                 else DecFOV();
                 break;
         }
-        UpdateValue();
     }
 
     void initPlayerSettings(){

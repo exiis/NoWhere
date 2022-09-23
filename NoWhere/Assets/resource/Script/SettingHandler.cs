@@ -42,13 +42,13 @@ public class SettingHandler : MonoBehaviour
     // Esc 통하여 상위 메뉴로 이동
     void Update(){
         if(onSetting){
-            if(Input.GetKeyUp(KeyCode.UpArrow)){
+            if(Input.GetKeyDown(KeyCode.UpArrow)){
                 if(currentSelect == 0) return;
                 setCurrentContentColor(false);
                 currentSelect--;
                 setCurrentContentColor(true);
             }   
-            if(Input.GetKeyUp(KeyCode.DownArrow)){
+            if(Input.GetKeyDown(KeyCode.DownArrow)){
                 if(currentSelect == ContentList.Length-1) return;
                 setCurrentContentColor(false);
                 currentSelect++;
@@ -84,7 +84,8 @@ public class SettingHandler : MonoBehaviour
     void initContentsColor(){
         int contentsNum = ContentList.Length;
         setCurrentContentColor(true);
-        for(int i=1; i<contentsNum; i++){
+        for(int i=0; i<contentsNum; i++){
+            if(i == currentSelect) continue;
             currentSelect = i;
             setCurrentContentColor(false);
         }
@@ -97,6 +98,7 @@ public class SettingHandler : MonoBehaviour
         onSetting = true;
         gameObject.SetActive(true);
         currentSelect = 0;
+        initContentsColor();
     }
 
     public void OffSetting(){
@@ -109,6 +111,7 @@ public class SettingHandler : MonoBehaviour
         if(ParentMenu.GetComponent<SettingHandler>() == null){
             ParentMenu.SetActive(false);
             GameObject.Find("UI").GetComponent<UIController>().OffSettingUI();
+            Time.timeScale = 1;
         }
         else{
             ParentMenu.SetActive(true);
