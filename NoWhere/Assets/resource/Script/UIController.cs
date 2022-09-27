@@ -127,11 +127,18 @@ public class UIController : MonoBehaviour
 
     /*──────────────────────────────────── Guide UI ──────────────────────────────────────*/
     #region Guide UI
+    /* [Note]
+    showGuid, hideGuide 호출하여 간단하게 Guide UI 제어 가능
+    */
     public GameObject Guide;
 
 
     public void showGuide(string text_)
     {
+        if(!Guide.activeSelf) {
+            Guide.SetActive(true);
+            Debug.Log("Guide on");
+        }
         TMP_Text guidText = Guide.GetComponent<TMP_Text>();
         guidText.text = text_;
 
@@ -144,6 +151,10 @@ public class UIController : MonoBehaviour
         guidText.text = "";
 
         guidText.color = new Color(1, 1, 1, 0);
+        if(Guide.activeSelf) {
+            Debug.Log("Guide off");
+            Guide.SetActive(false);
+        }
     }
     #endregion
     /*─────────────────────────────────── End Guide UI ───────────────────────────────────*/
@@ -160,12 +171,10 @@ public class UIController : MonoBehaviour
         Letter.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         transform.GetComponentInChildren<TMP_Text>().text = text;
 
-        if (fadeText)
-        {
-
+        if (fadeText) {
+            
         }
-        else
-        {
+        else {
             transform.GetComponentInChildren<TMP_Text>().color = new Color(0, 0, 0, 1);
         }
     }
@@ -202,6 +211,7 @@ public class UIController : MonoBehaviour
     /*───────────────────────────────── End Setting UI ────────────────────────────────────*/
 
 
+    #region Unity Function
     void Awake(){
         OffSettingUI();
     }
@@ -220,4 +230,5 @@ public class UIController : MonoBehaviour
             return;
         }
     }
+    #endregion
 }
